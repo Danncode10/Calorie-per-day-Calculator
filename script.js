@@ -1,6 +1,6 @@
 function calculate(){
     let activityLevel = getActivityLevel();
-    
+
 }
 
 function getActivityLevel() {
@@ -31,3 +31,12 @@ function getActivityLevel() {
 
     return multiplier;
 }
+
+function male_formula(weight, height, age) {
+    return 10 * weight + 6.25 * height - 5 * age + 5;
+}
+
+function female_formula(weight, height, age) {
+    return 10 * weight + 6.25 * height - 5 * age - 161;
+}
+
