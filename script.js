@@ -1,7 +1,38 @@
-function calculate(){
-    let activityLevel = getActivityLevel();
+function calculate() {
+     event.preventDefault(); // ✅ Prevent form from submitting and reloading the page
+     
+    const genderSelect = document.getElementById("gender");
 
+    const activityLevel = getActivityLevel(); // step 1: get multiplier
+
+    const form_weight = document.getElementById("weight");
+    const form_height = document.getElementById("height");
+    const form_age = document.getElementById("age");
+
+    const weight = parseFloat(form_weight.value);
+    const height = parseFloat(form_height.value);
+    const age = parseInt(form_age.value);
+
+    let bmr = 0;
+
+    // step 2: calculate BMR
+    if (genderSelect.value === "male") {
+        bmr = male_formula(weight, height, age);
+    } else {
+        bmr = female_formula(weight, height, age);
+    }
+
+    // step 3: multiply BMR by activity level to get total daily calories
+    const totalCalories = bmr * activityLevel;
+
+    // step 4: display or return result
+    console.log(`BMR: ${bmr.toFixed(2)} kcal/day`);
+    console.log(`Total Calories (with activity): ${totalCalories.toFixed(2)} kcal/day`);
+
+    
+    document.getElementById("cal_per_day").textContent = totalCalories.toFixed(2) + " kcal/day";
 }
+
 
 function getActivityLevel() {
     const activitySelect = document.getElementById("activity");
