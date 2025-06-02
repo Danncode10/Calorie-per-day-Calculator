@@ -1,6 +1,33 @@
+// Mifflin-St Jeor equation: https://reference.medscape.com/calculator/846/mifflin-st-jeor-equation
+
+/**
+ * Calorie Calculator using the Mifflin-St Jeor Equation
+ * ------------------------------------------------------
+ * This script calculates the number of calories a person should consume daily
+ * based on their Basal Metabolic Rate (BMR) and physical activity level.
+ * It uses the Mifflin-St Jeor formula to compute BMR for both males and females.
+ * The user provides inputs: gender, weight (kg), height (cm), age (years), and activity level.
+ * The result is shown on the webpage and logged to the console.
+ *
+ * Reference: https://reference.medscape.com/calculator/846/mifflin-st-jeor-equation
+ *
+ * Functions:
+ * - calculate(): Main function triggered on button click. It reads form inputs,
+ *                computes BMR, applies an activity multiplier, and displays results.
+ * - getActivityLevel(): Returns the correct multiplier based on user's selected activity level.
+ * - male_formula(weight, height, age): Calculates BMR for males.
+ * - female_formula(weight, height, age): Calculates BMR for females.
+ *
+ * Note:
+ * - `event.preventDefault()` is used to stop the default form submission.
+ * - Make sure the calculate() function is triggered by an event that passes the event object,
+ *   or bind it properly via `form.onsubmit` if you want to use preventDefault().
+ */
+
+
 function calculate() {
      event.preventDefault(); // ✅ Prevent form from submitting and reloading the page
-     
+
     const genderSelect = document.getElementById("gender");
 
     const activityLevel = getActivityLevel(); // step 1: get multiplier
