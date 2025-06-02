@@ -14,6 +14,14 @@
         <!-- Simple Form with kg and height in cm inputs and age in years -->
         <form id="calorieForm" class="mb-4">
             <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <select class="form-select" id="gender" required>
+                    <option value="" disabled selected>Select your gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="mb-3">
                 <label for="weight" class="form-label">Weight (kg)</label>
                 <input type="number" class="form-control" id="weight" required>
             </div>
@@ -21,6 +29,7 @@
                 <label for="height" class="form-label">Height (cm)</label>
                 <input type="number" class="form-control" id="height" required>
             </div>
+
             <div class="mb-3">
                 <label for="age" class="form-label">Age (years)</label>
                 <input type="number" class="form-control" id="age" required>
