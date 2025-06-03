@@ -40,6 +40,11 @@ function calculate() {
     const height = parseFloat(form_height.value);
     const age = parseInt(form_age.value);
 
+    if (weight < 1 || height < 1 || age < 1) {
+        alert("Please enter valid values (greater than 0) for weight, height, and age.");
+        return;
+    }
+
     let bmr = 0;
 
     // step 2: calculate BMR
@@ -97,4 +102,3 @@ function male_formula(weight, height, age) {
 function female_formula(weight, height, age) {
     return 10 * weight + 6.25 * height - 5 * age - 161;
 }
-
